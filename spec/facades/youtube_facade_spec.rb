@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'YoutubeFacade' do 
     it 'get_channel' do
-        stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=AIzaSyAcZts7iRvoRPoSKlXlAUoap3kZPlxz8pQ&maxResults=5&order=date&part=snippet&q=").
+        stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=#{Rails.application.credentials.youtube[:key]}&maxResults=5&order=date&part=snippet&q=").
             with(
                 headers: {
                     'Accept'=>'*/*',
@@ -16,11 +16,11 @@ RSpec.describe 'YoutubeFacade' do
 
         facade = YoutubeFacade.get_channel(channelId, query)
 
-        expect(facade.count).to be > 1
-        expect(facade[0]).to be_a(YoutubeVideoPoro)
-        expect(facade[0].publishedAt).to eq("2024-03-16T16:00:00Z")
-        expect(facade[0].title).to eq("Stop This Train, Win a Lamborghini")
-        expect(facade[0].image).to eq("https://i.ytimg.com/vi/mKdjycj-7eE/hqdefault.jpg")
-        expect(facade[0].id).to eq("mKdjycj-7eE")
+        expect(facade[:videos].count).to be > 1
+        expect(facade[:videos][0]).to be_a(YoutubeVideoPoro)
+        expect(facade[:videos][0].publishedAt).to eq("2024-03-19T16:00:00Z")
+        expect(facade[:videos][0].title).to eq("Keep Track Of Car, Win $10,000")
+        expect(facade[:videos][0].image).to eq("https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg")
+        expect(facade[:videos][0].id).to eq("OnTTThIzuNU")
     end
 end

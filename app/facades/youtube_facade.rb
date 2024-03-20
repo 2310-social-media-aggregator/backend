@@ -5,9 +5,9 @@ class YoutubeFacade
 
         youtube_service = YoutubeService.new
         youtube_json = youtube_service.get_channel(channelId, query)
-        youtube = {}
-        if youtube_json[:items].count > 0
-            youtube = YoutubeVideoPoro.new(youtube_json[:items])
+        youtube = []
+        youtube_json[:items].each do |video|
+            youtube.append(YoutubeVideoPoro.new(video))
         end
 
         {'videos': youtube}
