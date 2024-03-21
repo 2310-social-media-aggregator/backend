@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe "Api::V1::creators", type: :request do
     before(:each) do
-        @MrBeast = Creator.new( name: "MrBeast", 
-                                youtubeId: "UCX6OQ3DkcsbYNE6H8uQQuVA")
+        @MrBeast = Creator.create(  name: "MrBeast",
+                                    youtubeId: "UCX6OQ3DkcsbYNE6H8uQQuVA")
     end
 
     it "GET Youtube" do
