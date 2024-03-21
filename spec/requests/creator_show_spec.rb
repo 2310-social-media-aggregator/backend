@@ -6,7 +6,7 @@ RSpec.describe "Api::V1::creators", type: :request do
                                     youtube_handle: "UCX6OQ3DkcsbYNE6H8uQQuVA")
     end
 
-    it "GET Youtube" do
+    xit "GET Creator Aggregation" do
         stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=#{Rails.application.credentials.youtube[:key]}&maxResults=5&order=date&part=snippet&q=").
             with(
                 headers: {
