@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Api::V1::creators", type: :request do
     before(:each) do
         @MrBeast = Creator.create(  name: "MrBeast",
-                                    youtubeId: "UCX6OQ3DkcsbYNE6H8uQQuVA")
+                                    youtube_handle: "UCX6OQ3DkcsbYNE6H8uQQuVA")
     end
 
     it "GET Youtube" do
@@ -20,7 +20,7 @@ RSpec.describe "Api::V1::creators", type: :request do
         expect(response).to have_http_status(:success)
         json_response = JSON.parse(response.body)
 
-        expect(json_response['data']['id']).to eq(@MrBeast.id)
+        expect(json_response['data']['id']).to eq(@MrBeast.id.to_s)
         expect(json_response['data']['type']).to eq('creator')
         expect(json_response['data']['attributes']['name']).to eq('MrBeast')
 

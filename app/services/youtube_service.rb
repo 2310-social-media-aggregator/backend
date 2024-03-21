@@ -11,9 +11,9 @@ class YoutubeService
         JSON.parse(response.body, symbolize_names: true)
     end
     
-    def get_channel(channelId, query)
+    def get_channel(handle, query)
         maxResults = 5
         query = '' # delete this line if we are going to add search functionality
-        get_url("/youtube/v3/search?key=#{Rails.application.credentials.youtube[:key]}&q=#{query}&part=snippet&channelId=#{channelId}&order=date&maxResults=#{maxResults}")
+        get_url("/youtube/v3/search?key=#{Rails.application.credentials.youtube[:key]}&q=#{query}&part=snippet&channelId=#{handle}&order=date&maxResults=#{maxResults}")
     end
 end

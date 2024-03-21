@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_151758) do
 
   create_table "creators", force: :cascade do |t|
     t.string "name"
-    t.string "youtubeId"
+    t.string "youtube_handle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
