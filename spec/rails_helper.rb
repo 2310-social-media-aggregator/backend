@@ -34,18 +34,10 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
-<<<<<<<<< Temporary merge branch 1
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
 	config.fixture_paths = [
 		Rails.root.join('spec/fixtures')
 	]
-=========
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_paths = [
-    Rails.root.join('spec/fixtures')
-  ]
->>>>>>>>> Temporary merge branch 2
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
