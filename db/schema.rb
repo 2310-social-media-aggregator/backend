@@ -9,16 +9,34 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_151758) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_21_214443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "creators", force: :cascade do |t|
     t.string "name"
     t.string "youtube_handle"
+    t.string "twitch_handle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_follows_on_creator_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "follows", "creators"
+  add_foreign_key "follows", "users"
 end

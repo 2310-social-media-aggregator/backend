@@ -11,6 +11,8 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
+gem "dotenv"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -50,6 +52,9 @@ end
 
 group :test do
   gem "webmock"
+  gem "pry"
+  gem "capybara"
+  gem "launchy"
 end
 
 group :development do
