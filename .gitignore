@@ -35,5 +35,6 @@
 # Ignore simplecov coverage
 /coverage
 
-# Ignore CircleCI cache
+# Ignore CircleCI cache, local secret
 /tmp/cache
+/tmp/local_secret.txt
