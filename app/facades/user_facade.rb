@@ -7,7 +7,7 @@ class UserFacade
         end
 
         {
-            'name': user.name
+            'name': user.name,
             'follows': follows
         }
     end
