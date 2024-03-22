@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Api::V1::creators", type: :request do
+RSpec.describe "Api::V1::Creators", type: :request do
     before(:each) do
         @MrBeast = Creator.create(  name: "MrBeast",
                                     youtube_handle: "UCX6OQ3DkcsbYNE6H8uQQuVA")
