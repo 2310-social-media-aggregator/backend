@@ -52,7 +52,6 @@ end
 
 group :test do
   gem "webmock"
-  gem "rspec-rails"
   gem "capybara"
   gem "launchy"
 end
