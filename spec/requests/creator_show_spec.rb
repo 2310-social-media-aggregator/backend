@@ -4,18 +4,18 @@ RSpec.describe "Api::V1::creators", type: :request do
     before(:each) do
         @MrBeast = Creator.create(  name: "MrBeast",
                                     youtube_handle: "UCX6OQ3DkcsbYNE6H8uQQuVA")
+
+        stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=#{Rails.application.credentials.youtube[:key]}&maxResults=5&order=date&part=snippet&q=").
+            with(
+            headers: {
+                'Accept'=>'*/*',
+                'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+                'User-Agent'=>'Faraday v2.9.0'
+        }).
+        to_return(status: 200, body: File.read("spec/fixtures/MrBeastYoutube.json"), headers: {})
     end
 
     it "GET Creator Aggregation" do
-        stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=#{Rails.application.credentials.youtube[:key]}&maxResults=5&order=date&part=snippet&q=").
-            with(
-                headers: {
-                    'Accept'=>'*/*',
-                    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-                    'User-Agent'=>'Faraday v2.9.0'
-                }).
-        to_return(status: 200, body: File.read("spec/fixtures/MrBeastYoutube.json"), headers: {})
-
         get "/api/v1/creators/#{@MrBeast.id}", headers: {"CONTENT_TYPE" => "application/json"}
         expect(response).to have_http_status(:success)
         json_response = JSON.parse(response.body)
