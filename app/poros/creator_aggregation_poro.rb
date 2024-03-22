@@ -7,6 +7,6 @@ class CreatorAggregationPoro
     def initialize(data)
         @id = data[:id]
         @name = data[:name]
-        @youtube_videos = data[:youtube][:videos]
+        @youtube_videos = data[:youtube_videos]
     end
 end

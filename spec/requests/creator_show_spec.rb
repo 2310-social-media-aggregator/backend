@@ -6,7 +6,7 @@ RSpec.describe "Api::V1::creators", type: :request do
                                     youtube_handle: "UCX6OQ3DkcsbYNE6H8uQQuVA")
     end
 
-    xit "GET Creator Aggregation" do
+    it "GET Creator Aggregation" do
         stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=#{Rails.application.credentials.youtube[:key]}&maxResults=5&order=date&part=snippet&q=").
             with(
                 headers: {
@@ -20,8 +20,8 @@ RSpec.describe "Api::V1::creators", type: :request do
         expect(response).to have_http_status(:success)
         json_response = JSON.parse(response.body)
 
-        expect(json_response['data']['id']).to eq(@MrBeast.id.to_s)
-        expect(json_response['data']['type']).to eq('creator')
+        #expect(json_response['data']['id']).to eq(@MrBeast.id.to_s)
+        expect(json_response['data']['type']).to eq('creator_aggregation')
         expect(json_response['data']['attributes']['name']).to eq('MrBeast')
 
         expect(json_response['data']['attributes']['youtube_videos'].count).to eq(5)

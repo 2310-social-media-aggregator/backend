@@ -13,18 +13,14 @@ class CreatorFacade
             end
         end
 
-        CreatorAggregationPoro.new({
-            'id': package[:creator][:id],
-            'name': package[:creator][:name],
-            'youtube': {
-                'videos': youtube_videos
-            },
-            'twitch': {
-
-            },
-            'twitter': {
-
-            }
-        })
+        #CreatorAggregationPoro.new(
+        {
+            id: package[:creator][:id],
+            name: package[:creator][:name],
+            youtube_videos: youtube_videos,
+            twitch: {},
+            twitter: {}
+        }
+        #)
     end
 end
