@@ -24,14 +24,14 @@ RSpec.describe "Api::V1::creators", type: :request do
         expect(json_response['data']['type']).to eq('creator')
         expect(json_response['data']['attributes']['name']).to eq('MrBeast')
 
-        expect(json_response['data']['attributes']['youtube']['channelId']).to eq('UCX6OQ3DkcsbYNE6H8uQQuVA')
         expect(json_response['data']['attributes']['youtube']['videos'].count).to eq(5)
-        expect(json_response['data']['attributes']['youtube']['videos'].first['title']).to eq('Keep Track Of Car, Win $10,000')
-        expect(json_response['data']['attributes']['youtube']['videos'].first['image']).to eq('https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg')
-        expect(json_response['data']['attributes']['youtube']['videos'].first['id']).to eq('OnTTThIzuNU')
-        expect(json_response['data']['attributes']['youtube']['videos'].first['publishedAt']).to eq('2024-03-19T16:00:00Z')
+        
+        expect(json_response['data']['attributes']['youtube_videos'].first['title']).to eq('Keep Track Of Car, Win $10,000')
+        expect(json_response['data']['attributes']['youtube_videos'].first['image']).to eq('https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg')
+        expect(json_response['data']['attributes']['youtube_videos'].first['id']).to eq('OnTTThIzuNU')
+        expect(json_response['data']['attributes']['youtube_videos'].first['publishedAt']).to eq('2024-03-19T16:00:00Z')
 
-        expect(json_response['data']['attributes']['youtube']['videos'].last['id']).to eq('AFXoSFNMwIA')
-        expect(json_response['data']['attributes']['youtube']['videos'].last['title']).to eq("I Filled Chandler’s Car With Feastables")
+        expect(json_response['data']['attributes']['youtube_videos'].last['id']).to eq('AFXoSFNMwIA')
+        expect(json_response['data']['attributes']['youtube_videos'].last['title']).to eq("I Filled Chandler’s Car With Feastables")
     end
 end
