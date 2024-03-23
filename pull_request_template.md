@@ -1,29 +1,30 @@
 ## Description
-Briefly describe the purpose and goal of this pull request.
+Creator Create with sad testing
 
 ## What type of PR is this? (check all applicable)
 - [x] 💡💫 Feature
-- [] 🐞🐛 Fix
-- [] 🪸🎭 Refactor
-- [] 💅🎨 Style
-- [] 📄💾 Documentation
+- [ ] 🐞🐛 Fix
+- [ ] 🪸🎭 Refactor
+- [ ] 💅🎨 Style
+- [ ] 📄💾 Documentation
 
 ## Reviewers
 Dylan, Isaac, Quin
 
 ## Changes
 List the changes introduced by this pull request.
-
-- Change 1
-Creator Index
+- Creator Create
+- Creator Serializer
+- Error Poro
+- Error Serializer
+- Made Creator.name unique
+- Added Creator.twitter_handle to Schema
 
 ## How Has This Been Tested?
 Describe testing implemented and what all it covers.
-- [x] Creator Index Request
-
-- User Model
-- User Show
-- User Facade
+- POST Creator Create
+- POST Creator Create [SAD]-name taken
+- Creator Model name uniqueness
 
 ## Related Issues
 Indicate any related issues that this pull request addresses or resolves.
@@ -42,4 +43,3 @@ Add any additional information that might be relevant for reviewers.
 
 
 ### Thanks, GO TEAM! 👏
-
