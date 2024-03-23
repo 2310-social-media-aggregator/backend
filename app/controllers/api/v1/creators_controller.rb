@@ -1,4 +1,9 @@
 class Api::V1::CreatorsController < ApplicationController
+    def index
+        facade = CreatorFacade.index(Creator.all)
+        render json: CreatorIndexSerializer.new(facade)
+    end
+
     def show
         creator = Creator.find(params[:id])
 
