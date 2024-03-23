@@ -20,7 +20,6 @@ class CreatorFacade
             end
         end
 
-        #CreatorAggregationPoro.new(
         {
             id: package[:creator][:id],
             name: package[:creator][:name],
@@ -28,6 +27,5 @@ class CreatorFacade
             twitch: {},
             twitter: {}
         }
-        #)
     end
 end
