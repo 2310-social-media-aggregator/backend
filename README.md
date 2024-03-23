@@ -1,5 +1,5 @@
 # Working routes
 - Creator Index
--- /api/v1/creators
+- - /api/v1/creators
 - Creator Show
--- /api/v1/creators/#{@MrBeast.id}
+- - /api/v1/creators/#{@MrBeast.id}
