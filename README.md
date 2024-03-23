@@ -1,6 +1,6 @@
 # Working routes
-####Creator Index
+###Creator Index
 - /api/v1/creators
 
-####Creator Show
+###Creator Show
 - /api/v1/creators/**CREATOR_ID**
