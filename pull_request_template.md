@@ -13,17 +13,13 @@ Dylan, Isaac, Quin
 
 ## Changes
 List the changes introduced by this pull request.
-
-- Change 1
-Creator Index
+- CreatorFacade.index spec
+- CreatorFacade.aggregate spec
 
 ## How Has This Been Tested?
 Describe testing implemented and what all it covers.
-- [x] Creator Index Request
-
-- User Model
-- User Show
-- User Facade
+- [x] CreatorFacade.index spec
+- [x] CreatorFacade.aggregate spec
 
 ## Related Issues
 Indicate any related issues that this pull request addresses or resolves.
@@ -42,4 +38,3 @@ Add any additional information that might be relevant for reviewers.
 
 
 ### Thanks, GO TEAM! 👏
-
