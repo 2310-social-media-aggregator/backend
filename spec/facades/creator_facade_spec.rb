@@ -42,5 +42,10 @@ RSpec.describe 'CreatorFacade' do
 
     it 'index' do
         facade = CreatorFacade.index([@MrBeast,@PewDiePie,@Markiplier,@jacksepticeye])
+
+        expect(facade[:creators][0]).to eq({name: @MrBeast.name,        id: @MrBeast.id})
+        expect(facade[:creators][1]).to eq({name: @PewDiePie.name,      id: @PewDiePie.id})
+        expect(facade[:creators][2]).to eq({name: @Markiplier.name,     id: @Markiplier.id})
+        expect(facade[:creators][3]).to eq({name: @jacksepticeye.name,  id: @jacksepticeye.id})
     end
 end
