@@ -13,6 +13,14 @@ Dylan, Isaac, Quin
 
 ## Changes
 List the changes introduced by this pull request.
+
+- Change 1
+Creator Index
+
+## How Has This Been Tested?
+Describe testing implemented and what all it covers.
+- [x] Creator Index Request
+
 - User Model
 - User Show
 - User Facade
@@ -20,10 +28,6 @@ List the changes introduced by this pull request.
 ## Related Issues
 Indicate any related issues that this pull request addresses or resolves.
 - none
-
-## How Has This Been Tested?
-Describe testing implemented and what all it covers.
-- [x] User GET request
 
 ## Checklist
 - [x] I have read the contribution guidelines.
@@ -36,4 +40,6 @@ Describe testing implemented and what all it covers.
 ## Additional Notes
 Add any additional information that might be relevant for reviewers.
 
+
 ### Thanks, GO TEAM! 👏
+

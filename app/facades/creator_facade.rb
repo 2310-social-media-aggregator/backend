@@ -1,4 +1,11 @@
 class CreatorFacade
+    def self.index(all_creators)
+        creators = []
+        all_creators.each do |creator|
+            creators.append({name: creator.name, id: creator.id})
+        end
+        {creators: creators}
+    end
 
     def self.aggregate(package)
         youtube_videos = []
