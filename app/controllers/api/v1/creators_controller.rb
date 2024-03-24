@@ -57,6 +57,19 @@ class Api::V1::CreatorsController < ApplicationController
         end
     end
 
+    def delete
+        creator = Creator.find_by(id: params[:id])
+        if creator != nil
+            if creator.destroy
+                render json: CreatorSerializer.new(creator), status: :no_content
+            else
+                render json: ErrorSerializer.new(ErrorMessage.new("Delete failed.", 500)), status: :internal_server_error
+            end
+        else
+            render json: ErrorSerializer.new(ErrorMessage.new("Creator not found.", 404)), status: :not_found
+        end
+    end
+
     private
 
     def creator_params

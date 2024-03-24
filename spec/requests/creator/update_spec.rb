@@ -6,7 +6,7 @@ RSpec.describe "Api::V1::creators", type: :request do
         @original_creator_count = Creator.all.count
     end
 
-    it "POST Creator Create" do
+    it "PATCH Creator Update" do
         expect(Creator.all.count).to eq(@original_creator_count)
         expect(Creator.last.name).to eq('MrBeast')
         expect(Creator.last.youtube_handle).to eq(nil)
@@ -35,7 +35,7 @@ RSpec.describe "Api::V1::creators", type: :request do
         expect(json_response['data']['attributes']['twitter_handle']).to eq('MrBeast')
     end
 
-    it "POST Creator Create - [SAD]-bad id" do
+    it "PATCH Creator Update - [SAD]-bad id" do
         new_creator_data = ({
             youtube_handle: 'UCX6OQ3DkcsbYNE6H8uQQuVA',
             twitch_handle: 'mrbeast6000',
