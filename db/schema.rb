@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_214443) do
     t.string "name"
     t.string "youtube_handle"
     t.string "twitch_handle"
+    t.string "twitter_handle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

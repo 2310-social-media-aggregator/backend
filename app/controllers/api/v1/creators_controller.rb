@@ -1,4 +1,17 @@
 class Api::V1::CreatorsController < ApplicationController
+    def create
+        if Creator.find_by(name: params[:name]) == nil
+            creator = Creator.create(creator_params)
+            if creator.save
+                render json: CreatorSerializer.new(creator), status: :created
+            else
+                render json: ErrorSerializer.new(ErrorMessage.new("Save failed.", 500)), status: :internal_server_error
+            end
+        else
+            render json: ErrorSerializer.new(ErrorMessage.new("Name taken.", 409)), status: :conflict
+        end
+    end
+
     def index
         facade = CreatorFacade.index(Creator.all)
         render json: CreatorIndexSerializer.new(facade)
@@ -29,5 +42,16 @@ class Api::V1::CreatorsController < ApplicationController
 
         facade = CreatorFacade.aggregate(package)
         render json: CreatorAggregationSerializer.new(facade)
+    end
+
+    private
+
+    def creator_params
+        #.require(:creator)
+        params.permit(  :id, 
+                        :name, 
+                        :youtube_handle, 
+                        :twitch_handle, 
+                        :twitter_handle)
     end
 end
