@@ -1,5 +1,5 @@
 RSpec.describe "Api::V1::follow", type: :request do
-    describe "Follow Create" do
+    describe "Follow Delete" do
         before :each do
             @user1 = User.create!(
                 name: "Albert Wesker",
