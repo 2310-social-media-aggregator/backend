@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+@zfg = Creator.create(  name: "ZFG",
+                        twitch_handle: "8683614",
+                        youtube_handle: "UC1qsXgdSxJnQG1wy2Gnvuqw")
+
