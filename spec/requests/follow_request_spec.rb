@@ -30,7 +30,7 @@ RSpec.describe "Api::V1::follow", type: :request do
                     "Accept": "application/json"
                 }
 
-                post api_v1_follows_path, headers: headers, params: JSON.generate(follow_params)
+                post "/api/v1/users/#{@user1.id}/follows", headers: headers, params: JSON.generate(follow_params)
 
                 new_follow = Follow.last
                 result = JSON.parse(response.body, symbolize_names: true)

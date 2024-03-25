@@ -1,6 +1,7 @@
 class Api::V1::FollowsController < ApplicationController
     def create
-        follow = Follow.new(user_id: params[:user_id], creator_id: params[:creator_id])
+        user = User.find_by(id: params[:user_id])
+        follow = user.follows.new(creator_id: params[:creator_id])
 
         if follow.save
             render json: { success: "Follow added successfully" }, status: :created
