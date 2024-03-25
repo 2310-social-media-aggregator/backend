@@ -36,7 +36,8 @@ RSpec.describe 'CreatorFacade' do
         expect(facade[:youtube_videos][0][:image]).to eq("https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg")
         expect(facade[:youtube_videos][0][:id]).to eq("OnTTThIzuNU")
 
-        expect(facade[:twitch]).to eq({})
+        # Twitch facade test set to nil since Twitch consumption is complete; revisit test with creator on both YouTube and Twitch as more robust example, since we'll have Twitch video data as well
+        expect(facade[:twitch]).to eq(nil)
         expect(facade[:twitter]).to eq({})
     end
 

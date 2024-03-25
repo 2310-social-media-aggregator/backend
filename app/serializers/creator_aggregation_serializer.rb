@@ -9,4 +9,8 @@ class CreatorAggregationSerializer
     attribute :youtube_videos do |object|
         object[:youtube_videos]
     end
+
+    attribute :twitch_videos do |object|
+        object[:twitch_videos]
+    end
 end
