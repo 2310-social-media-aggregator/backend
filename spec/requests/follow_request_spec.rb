@@ -22,8 +22,8 @@ RSpec.describe "Api::V1::follow", type: :request do
         describe "happy path" do
             it "creates a follow" do
                 follow_params = {
-                    user_name: "Albert Wesker",
-                    creator_name: "ZFG"
+                    user_id: @user1.id,
+                    creator_id: @creator2.id
                 }
                 headers = { 
                     "Content-Type": "application/json",
@@ -38,26 +38,13 @@ RSpec.describe "Api::V1::follow", type: :request do
                 expect(response).to be_successful
                 expect(response.status).to eq(201)
 
-                expect(follow.user_id).to eq(follow_params[:user_id])
-                expect(follow.creator_id).to eq(follow_params[:creator_id])
+                expect(new_follow.user_id).to eq(follow_params[:user_id])
+                expect(new_follow.creator_id).to eq(follow_params[:creator_id])
 
                 # JSON formatting according to front end spec
-                expect(result[:data]).to be_a(Hash)
+                expect(result).to be_a(Hash)
 
-                expect(result[:data][:id]).to eq("1")
-                expect(result[:data][:type]).to eq("follow")
-
-                # Exact attribute keys
-                expect(result[:data][:attributes].count).to eq 2
-
-                expect(result[:data][:attributes]).to have_key(:user_id)
-                expect(result[:data][:attributes]).to have_key(:creator_id)
-
-                expect(result[:data][:attributes][:user_id]).to be_a(Integer)
-                expect(result[:data][:attributes][:creator_id]).to be_a(Integer)
-                
-                expect(result[:data][:attributes][:user_id]).to eq(1)
-                expect(result[:data][:attributes][:creator_id]).to eq(2)
+                expect(result[:success]).to eq("Follow added successfully")
             end
         end
     end
