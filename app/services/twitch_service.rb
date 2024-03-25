@@ -1,13 +1,14 @@
 class TwitchService
     def conn
         Faraday.new(url: 'https://api.twitch.tv/helix') do |faraday|
-            #faraday.headers['X-Api-Key'] = Rails.application.credentials.api_ninjas[:key]
+          faraday.headers['Authorization'] = "Bearer #{Rails.application.credentials.twitch[:bearer_token]}"
+          faraday.headers['Client-Id'] = Rails.application.credentials.twitch[:client_id] 
+          #faraday.headers['X-Api-Key'] = Rails.application.credentials.api_ninjas[:key]
         end
     end
     
     def get_url(url)
         response = conn.get(url) 
-        
         JSON.parse(response.body, symbolize_names: true)
     end
     
