@@ -153,7 +153,7 @@ GEM
       timeout
     net-smtp (0.4.0.1)
       net-protocol
-    nio4r (2.7.0)
+    nio4r (2.7.1)
     nokogiri (1.16.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.3-x86_64-linux)
@@ -259,6 +259,7 @@ GEM
 
 PLATFORMS
   arm64-darwin
+  arm64-darwin
   arm64-darwin-23
   x86_64-linux
 
@@ -286,4 +287,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.5.6
+   2.5.4
