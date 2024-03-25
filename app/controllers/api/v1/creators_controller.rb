@@ -8,18 +8,18 @@ class Api::V1::CreatorsController < ApplicationController
         end
 
         twitch = nil
-        #if creator.twitch_handle != nil
-        #    twitch = TwitchFacade.get_channel(creator.twitch_handle, params[:query])
-        #end
+        if creator.twitch_handle != nil
+            twitch = TwitchFacade.get_channel(creator.twitch_handle, params[:query])
+        end
 
         twitter = nil
         #if creator.twitter_handle != nil
         #    twitter = TwitterFacade.get_channel(creator.twitter_handle, params[:query])
         #end
 
-        package =  {'creator': creator, 
-                    'youtube': youtube, 
-                    'twitch': twitch, 
+        package =  {'creator': creator,
+                    'youtube': youtube,
+                    'twitch': twitch,
                     'twitter': twitter}
 
         facade = CreatorFacade.aggregate(package)

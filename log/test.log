@@ -85,3 +85,627 @@ Processing by Api::V1::CreatorsController#show as HTML
   [1m[36mCreator Load (0.4ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
 Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 9690)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 00:34:33.932266"], ["updated_at", "2024-03-25 00:34:33.932266"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/2" for 127.0.0.1 at 2024-03-24 17:34:33 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"2", "creator"=>{}}
+  [1m[36mCreator Load (0.4ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 9688)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 00:34:33.959365"], ["updated_at", "2024-03-25 00:34:33.959365"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.9ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 00:37:30.156768"], ["updated_at", "2024-03-25 00:37:30.156768"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/4" for 127.0.0.1 at 2024-03-24 17:37:30 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"4", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9693)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 00:37:30.184897"], ["updated_at", "2024-03-25 00:37:30.184897"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/5" for 127.0.0.1 at 2024-03-24 17:37:30 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"5", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 243)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (1.0ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 00:43:13.530905"], ["updated_at", "2024-03-25 00:43:13.530905"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/6" for 127.0.0.1 at 2024-03-24 17:43:13 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"6", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 107457ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 40016)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 00:45:00.999373"], ["updated_at", "2024-03-25 00:45:00.999373"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/7" for 127.0.0.1 at 2024-03-24 17:45:01 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"7", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1664ms (ActiveRecord: 0.3ms | Allocations: 9644)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.8ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 00:45:05.246559"], ["updated_at", "2024-03-25 00:45:05.246559"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/8" for 127.0.0.1 at 2024-03-24 17:45:05 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"8", "creator"=>{}}
+  [1m[36mCreator Load (0.4ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 1783516ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 47527)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.8ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:14:48.781509"], ["updated_at", "2024-03-25 01:14:48.781509"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/9" for 127.0.0.1 at 2024-03-24 18:14:48 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"9", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms | Allocations: 316)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (5.9ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:14:51.628853"], ["updated_at", "2024-03-25 01:14:51.628853"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/10" for 127.0.0.1 at 2024-03-24 18:14:51 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"10", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 9717)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:14:51.661160"], ["updated_at", "2024-03-25 01:14:51.661160"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/11" for 127.0.0.1 at 2024-03-24 18:14:51 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"11", "creator"=>{}}
+  [1m[36mCreator Load (0.4ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 2802)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:16:40.318982"], ["updated_at", "2024-03-25 01:16:40.318982"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/12" for 127.0.0.1 at 2024-03-24 18:16:40 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"12", "creator"=>{}}
+  [1m[36mCreator Load (0.4ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:16:40.345652"], ["updated_at", "2024-03-25 01:16:40.345652"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/13" for 127.0.0.1 at 2024-03-24 18:16:40 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"13", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 2123)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.7ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:17:20.257551"], ["updated_at", "2024-03-25 01:17:20.257551"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/14" for 127.0.0.1 at 2024-03-24 18:17:20 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"14", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:17:20.283414"], ["updated_at", "2024-03-25 01:17:20.283414"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/15" for 127.0.0.1 at 2024-03-24 18:17:20 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"15", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 75638ms (ActiveRecord: 0.2ms | Allocations: 65019)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (1.0ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:18:38.246178"], ["updated_at", "2024-03-25 01:18:38.246178"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/16" for 127.0.0.1 at 2024-03-24 18:18:38 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"16", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:18:38.274124"], ["updated_at", "2024-03-25 01:18:38.274124"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/17" for 127.0.0.1 at 2024-03-24 18:18:38 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"17", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 33549ms (ActiveRecord: 0.2ms | Allocations: 59459)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.8ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:19:14.919670"], ["updated_at", "2024-03-25 01:19:14.919670"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/18" for 127.0.0.1 at 2024-03-24 18:19:14 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"18", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:19:14.945524"], ["updated_at", "2024-03-25 01:19:14.945524"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/19" for 127.0.0.1 at 2024-03-24 18:19:14 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"19", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 3215ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 26504)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:19:39.262890"], ["updated_at", "2024-03-25 01:19:39.262890"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/20" for 127.0.0.1 at 2024-03-24 18:19:39 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"20", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:19:39.290934"], ["updated_at", "2024-03-25 01:19:39.290934"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/21" for 127.0.0.1 at 2024-03-24 18:19:39 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"21", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.8ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:20:10.276930"], ["updated_at", "2024-03-25 01:20:10.276930"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/22" for 127.0.0.1 at 2024-03-24 18:20:10 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"22", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:20:10.304194"], ["updated_at", "2024-03-25 01:20:10.304194"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/23" for 127.0.0.1 at 2024-03-24 18:20:10 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"23", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Completed 200 OK in 81717ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 33593)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (1.0ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:21:41.697048"], ["updated_at", "2024-03-25 01:21:41.697048"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/24" for 127.0.0.1 at 2024-03-24 18:21:41 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"24", "creator"=>{}}
+  [1m[36mCreator Load (0.5ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 9695)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:21:41.725488"], ["updated_at", "2024-03-25 01:21:41.725488"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/25" for 127.0.0.1 at 2024-03-24 18:21:41 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"25", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 2962ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 26507)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (1.0ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:23:23.057945"], ["updated_at", "2024-03-25 01:23:23.057945"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/26" for 127.0.0.1 at 2024-03-24 18:23:23 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"26", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 637924ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 57653)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:34:00.994913"], ["updated_at", "2024-03-25 01:34:00.994913"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/27" for 127.0.0.1 at 2024-03-24 18:34:00 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"27", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 200 OK in 9255ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 11594)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.9ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:34:25.336841"], ["updated_at", "2024-03-25 01:34:25.336841"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/28" for 127.0.0.1 at 2024-03-24 18:34:25 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"28", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Completed 200 OK in 1275ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 36605)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:34:26.626324"], ["updated_at", "2024-03-25 01:34:26.626324"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/29" for 127.0.0.1 at 2024-03-24 18:34:26 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"29", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 200 OK in 911784ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 22331)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:49:49.863546"], ["updated_at", "2024-03-25 01:49:49.863546"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/30" for 127.0.0.1 at 2024-03-24 18:49:49 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"30", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9756)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:49:49.888882"], ["updated_at", "2024-03-25 01:49:49.888882"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/31" for 127.0.0.1 at 2024-03-24 18:49:49 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"31", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.8ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:56:41.928863"], ["updated_at", "2024-03-25 01:56:41.928863"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/32" for 127.0.0.1 at 2024-03-24 18:56:41 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"32", "creator"=>{}}
+  [1m[36mCreator Load (0.4ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 9755)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:56:41.957260"], ["updated_at", "2024-03-25 01:56:41.957260"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/33" for 127.0.0.1 at 2024-03-24 18:56:41 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"33", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:56:57.475759"], ["updated_at", "2024-03-25 01:56:57.475759"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/34" for 127.0.0.1 at 2024-03-24 18:56:57 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"34", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9753)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:56:57.502332"], ["updated_at", "2024-03-25 01:56:57.502332"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/35" for 127.0.0.1 at 2024-03-24 18:56:57 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"35", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:57:19.771279"], ["updated_at", "2024-03-25 01:57:19.771279"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/36" for 127.0.0.1 at 2024-03-24 18:57:19 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"36", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9753)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:57:19.797647"], ["updated_at", "2024-03-25 01:57:19.797647"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/37" for 127.0.0.1 at 2024-03-24 18:57:19 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"37", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2182)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:59:10.269273"], ["updated_at", "2024-03-25 01:59:10.269273"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/38" for 127.0.0.1 at 2024-03-24 18:59:10 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"38", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 9755)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (1.7ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:59:10.295691"], ["updated_at", "2024-03-25 01:59:10.295691"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/39" for 127.0.0.1 at 2024-03-24 18:59:10 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"39", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.7ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 01:59:58.724660"], ["updated_at", "2024-03-25 01:59:58.724660"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/40" for 127.0.0.1 at 2024-03-24 18:59:58 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"40", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9754)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 01:59:58.752189"], ["updated_at", "2024-03-25 01:59:58.752189"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/41" for 127.0.0.1 at 2024-03-24 18:59:58 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"41", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2182)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mLINES[0m and [31mCOLUMNS[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.7ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["created_at", "2024-03-25 02:02:32.275863"], ["updated_at", "2024-03-25 02:02:32.275863"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/42" for 127.0.0.1 at 2024-03-24 19:02:32 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"42", "creator"=>{}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9753)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["created_at", "2024-03-25 02:02:32.303086"], ["updated_at", "2024-03-25 02:02:32.303086"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/43" for 127.0.0.1 at 2024-03-24 19:02:32 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"43", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
