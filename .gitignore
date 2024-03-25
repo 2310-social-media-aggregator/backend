@@ -37,3 +37,4 @@
 
 # Ignore CircleCI temp files
 /tmp
+/log/test.log
