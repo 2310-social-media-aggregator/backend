@@ -1,3 +1,620 @@
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (36.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (109.7ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "creators" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "creators" ("id" bigserial primary key, "name" character varying, "youtube_handle" character varying, "twitch_handle" character varying, "twitter_handle" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "creator_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_follows_on_creator_id" ON "follows" ("creator_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_follows_on_user_id" ON "follows" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_516a22fd7d"
+FOREIGN KEY ("creator_id")
+  REFERENCES "creators" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240321214443)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240321214328),
+(20240321214241);[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-03-25 02:14:57.689565', '2024-03-25 02:14:57.689571') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'c24a2f7224af620feec4859c7009386953375eb5', '2024-03-25 02:14:57.690256', '2024-03-25 02:14:57.690257') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.751724"], ["updated_at", "2024-03-25 02:14:57.751724"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.753685"], ["updated_at", "2024-03-25 02:14:57.753685"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.754654"], ["updated_at", "2024-03-25 02:14:57.754654"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.755383"], ["updated_at", "2024-03-25 02:14:57.755383"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.812224"], ["updated_at", "2024-03-25 02:14:57.812224"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.813142"], ["updated_at", "2024-03-25 02:14:57.813142"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.814289"], ["updated_at", "2024-03-25 02:14:57.814289"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.815306"], ["updated_at", "2024-03-25 02:14:57.815306"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.4ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", nil], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.831529"], ["updated_at", "2024-03-25 02:14:57.831529"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Update (0.4ms)[0m  [1m[33mUPDATE "creators" SET "name" = $1, "updated_at" = $2 WHERE "creators"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 02:14:57.832508"], ["id", 9]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", nil], ["email", nil], ["created_at", "2024-03-25 02:14:57.843754"], ["updated_at", "2024-03-25 02:14:57.843754"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 02:14:57.844646"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-24 19:14:57 -0700
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x000000012281d2b0>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.898538"], ["updated_at", "2024-03-25 02:14:57.898538"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 25ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 6424)
+  [1m[36mCreator Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-24 19:14:57 -0700
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x0000000123673490>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.911877"], ["updated_at", "2024-03-25 02:14:57.911877"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 11], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 1306)
+  [1m[36mCreator Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-24 19:14:57 -0700
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+Completed 409 Conflict in 1ms (Views: 0.0ms | ActiveRecord: 0.2ms | Allocations: 394)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.917127"], ["updated_at", "2024-03-25 02:14:57.917127"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/12" for 127.0.0.1 at 2024-03-24 19:14:57 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"12", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 2170)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "ZFG"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["twitter_handle", nil], ["created_at", "2024-03-25 02:14:57.930644"], ["updated_at", "2024-03-25 02:14:57.930644"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/13" for 127.0.0.1 at 2024-03-24 19:14:57 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"13", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.7ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.465891"], ["updated_at", "2024-03-25 02:16:46.465891"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.467779"], ["updated_at", "2024-03-25 02:16:46.467779"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.468592"], ["updated_at", "2024-03-25 02:16:46.468592"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.469559"], ["updated_at", "2024-03-25 02:16:46.469559"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.530939"], ["updated_at", "2024-03-25 02:16:46.530939"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.532036"], ["updated_at", "2024-03-25 02:16:46.532036"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.532855"], ["updated_at", "2024-03-25 02:16:46.532855"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.533677"], ["updated_at", "2024-03-25 02:16:46.533677"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", nil], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.552685"], ["updated_at", "2024-03-25 02:16:46.552685"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Update (0.5ms)[0m  [1m[33mUPDATE "creators" SET "name" = $1, "updated_at" = $2 WHERE "creators"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 02:16:46.553488"], ["id", 22]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", nil], ["email", nil], ["created_at", "2024-03-25 02:16:46.563547"], ["updated_at", "2024-03-25 02:16:46.563547"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 02:16:46.564410"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-24 19:16:46 -0700
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x000000011a173160>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.583753"], ["updated_at", "2024-03-25 02:16:46.583753"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 23], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 10ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 6424)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-24 19:16:46 -0700
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x0000000119c342f8>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.593558"], ["updated_at", "2024-03-25 02:16:46.593558"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 24], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 1306)
+  [1m[36mCreator Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-24 19:16:46 -0700
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+Completed 409 Conflict in 1ms (Views: 0.0ms | ActiveRecord: 0.2ms | Allocations: 394)
+  [1m[36mCreator Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.598304"], ["updated_at", "2024-03-25 02:16:46.598304"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/25" for 127.0.0.1 at 2024-03-24 19:16:46 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"25", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 2144)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "ZFG"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["twitter_handle", nil], ["created_at", "2024-03-25 02:16:46.611148"], ["updated_at", "2024-03-25 02:16:46.611148"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/26" for 127.0.0.1 at 2024-03-24 19:16:46 -0700
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"26", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2181)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (2.0ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:39.992770"], ["updated_at", "2024-03-25 16:17:39.992770"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:39.996017"], ["updated_at", "2024-03-25 16:17:39.996017"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:39.996975"], ["updated_at", "2024-03-25 16:17:39.996975"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:39.997862"], ["updated_at", "2024-03-25 16:17:39.997862"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.025445"], ["updated_at", "2024-03-25 16:17:40.025445"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.026426"], ["updated_at", "2024-03-25 16:17:40.026426"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.027174"], ["updated_at", "2024-03-25 16:17:40.027174"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.027868"], ["updated_at", "2024-03-25 16:17:40.027868"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", nil], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.039055"], ["updated_at", "2024-03-25 16:17:40.039055"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Update (2.6ms)[0m  [1m[33mUPDATE "creators" SET "name" = $1, "updated_at" = $2 WHERE "creators"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 16:17:40.039769"], ["id", 679]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", nil], ["email", nil], ["created_at", "2024-03-25 16:17:40.052715"], ["updated_at", "2024-03-25 16:17:40.052715"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 16:17:40.053461"], ["id", 41]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Count (15.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-25 10:17:40 -0600
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.3ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x000000013bc56ae8>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.6ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.087247"], ["updated_at", "2024-03-25 16:17:40.087247"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 680], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 10ms (Views: 0.1ms | ActiveRecord: 3.9ms | Allocations: 6426)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-25 10:17:40 -0600
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x000000013bdb2450>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.096180"], ["updated_at", "2024-03-25 16:17:40.096180"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 681], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 1306)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-25 10:17:40 -0600
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+Completed 409 Conflict in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 394)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.100033"], ["updated_at", "2024-03-25 16:17:40.100033"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/682" for 127.0.0.1 at 2024-03-25 10:17:40 -0600
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"682", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 682], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2144)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "ZFG"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["twitter_handle", nil], ["created_at", "2024-03-25 16:17:40.107203"], ["updated_at", "2024-03-25 16:17:40.107203"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/683" for 127.0.0.1 at 2024-03-25 10:17:40 -0600
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"683", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 683], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2181)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (1.9ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.838038"], ["updated_at", "2024-03-25 16:56:33.838038"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.3ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.841112"], ["updated_at", "2024-03-25 16:56:33.841112"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.842137"], ["updated_at", "2024-03-25 16:56:33.842137"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.844323"], ["updated_at", "2024-03-25 16:56:33.844323"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.882560"], ["updated_at", "2024-03-25 16:56:33.882560"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "PewDiePie"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "PewDiePie"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.883448"], ["updated_at", "2024-03-25 16:56:33.883448"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "Markiplier"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Markiplier"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.884174"], ["updated_at", "2024-03-25 16:56:33.884174"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "jacksepticeye"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jacksepticeye"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.884917"], ["updated_at", "2024-03-25 16:56:33.884917"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", nil], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.896143"], ["updated_at", "2024-03-25 16:56:33.896143"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Update (1.3ms)[0m  [1m[33mUPDATE "creators" SET "name" = $1, "updated_at" = $2 WHERE "creators"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 16:56:33.896714"], ["id", 692]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mCreator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", nil], ["email", nil], ["created_at", "2024-03-25 16:56:33.911405"], ["updated_at", "2024-03-25 16:56:33.911405"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "dummy value"], ["updated_at", "2024-03-25 16:56:33.912924"], ["id", 42]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "dummy value"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "DUMMY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCreator Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-25 10:56:33 -0600
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x000000010be83ad0>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (10.5ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.960167"], ["updated_at", "2024-03-25 16:56:33.960167"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 693], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 21ms (Views: 0.1ms | ActiveRecord: 13.4ms | Allocations: 6426)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" ORDER BY "creators"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-25 10:56:33 -0600
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :creator. Context: { controller: Api::V1::CreatorsController, action: create, request: #<ActionDispatch::Request:0x000000010c58c598>, params: {"name"=>"TestName123abc", "controller"=>"api/v1/creators", "action"=>"create", "creator"=>{"name"=>"TestName123abc"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "TestName123abc"], ["youtube_handle", nil], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.979206"], ["updated_at", "2024-03-25 16:56:33.979206"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 AND "creators"."id" != $2 LIMIT $3[0m  [["name", "TestName123abc"], ["id", 694], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 1306)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+Started POST "/api/v1/creators" for 127.0.0.1 at 2024-03-25 10:56:33 -0600
+Processing by Api::V1::CreatorsController#create as HTML
+  Parameters: {"name"=>"TestName123abc", "creator"=>{"name"=>"TestName123abc"}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "TestName123abc"], ["LIMIT", 1]]
+Completed 409 Conflict in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms | Allocations: 394)
+  [1m[36mCreator Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "creators"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "MrBeast"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.1ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MrBeast"], ["youtube_handle", "UCX6OQ3DkcsbYNE6H8uQQuVA"], ["twitch_handle", nil], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.982991"], ["updated_at", "2024-03-25 16:56:33.982991"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/695" for 127.0.0.1 at 2024-03-25 10:56:33 -0600
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"695", "creator"=>{}}
+  [1m[36mCreator Load (0.1ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 695], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2169)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCreator Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "creators" WHERE "creators"."name" = $1 LIMIT $2[0m  [["name", "ZFG"], ["LIMIT", 1]]
+  [1m[36mCreator Create (0.2ms)[0m  [1m[32mINSERT INTO "creators" ("name", "youtube_handle", "twitch_handle", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ZFG"], ["youtube_handle", nil], ["twitch_handle", "8683614"], ["twitter_handle", nil], ["created_at", "2024-03-25 16:56:33.990842"], ["updated_at", "2024-03-25 16:56:33.990842"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/creators/696" for 127.0.0.1 at 2024-03-25 10:56:33 -0600
+Processing by Api::V1::CreatorsController#show as HTML
+  Parameters: {"id"=>"696", "creator"=>{}}
+  [1m[36mCreator Load (0.2ms)[0m  [1m[34mSELECT "creators".* FROM "creators" WHERE "creators"."id" = $1 LIMIT $2[0m  [["id", 696], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2182)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
   [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
