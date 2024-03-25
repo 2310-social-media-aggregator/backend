@@ -1,5 +1,4 @@
 ## Description
-Creator Create with sad testing
 
 ## What type of PR is this? (check all applicable)
 - [ ] 💡💫 Feature
@@ -18,14 +17,8 @@ List the changes introduced by this pull request.
 
 ## How Has This Been Tested?
 Describe testing implemented and what all it covers.
-- Fixes Issue #123
-- Addresses Issue #456
-
-## How Has This Been Tested?
-Describe testing implemented and what all it covers.
-- [ ] (fill out testing done here)
-- [ ] (additional placement for more testing)
-- [ ] Is not applicable to this PR
+- Testing Method 1
+- Testing Method 2
 
 ## Related Issues
 Indicate any related issues that this pull request addresses or resolves.
