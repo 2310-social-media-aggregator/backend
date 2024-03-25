@@ -57,7 +57,7 @@ class Api::V1::CreatorsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         creator = Creator.find_by(id: params[:id])
         if creator != nil
             if creator.destroy

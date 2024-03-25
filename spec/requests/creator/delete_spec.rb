@@ -15,7 +15,7 @@ RSpec.describe 'CreatorFacade' do
         expect(Creator.all.count).to eq(@original_creator_count-1)
     end
 
-    xit 'DELETE Creator Delete - [SAD]-bad id' do
+    it 'DELETE Creator Delete - [SAD]-bad id' do
         delete "/api/v1/creators/#{999999999999999}", headers: {"CONTENT_TYPE" => "application/json"}
         expect(response).to have_http_status(404)
         json_response = JSON.parse(response.body)
