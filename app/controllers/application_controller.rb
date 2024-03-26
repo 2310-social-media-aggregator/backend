@@ -22,4 +22,12 @@ class ApplicationController < ActionController::API
             raise ActiveRecord::RecordNotFound
         end
     end
+
+    def find_follow_by_id(id)
+        if follow = Follow.find(id)
+            follow
+        else
+            raise ActiveRecord::RecordNotFound
+        end
+    end
 end
