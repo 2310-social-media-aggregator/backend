@@ -8,4 +8,29 @@ class Api::V1::UsersController < ApplicationController
             render json: ErrorSerializer.new(ErrorMessage.new("User not found.", 404)), status: :not_found
         end
     end
+
+    def create
+        if params[:name] != nil && params[:name] != ''
+            if User.find_by(name: params[:name]) == nil
+                user = User.create(user_params)
+                if user.save
+                    render json: UserSerializer.new(user), status: :created
+                else
+                    render json: ErrorSerializer.new(ErrorMessage.new("Save failed.", 500)), status: :internal_server_error
+                end
+            else
+                render json: ErrorSerializer.new(ErrorMessage.new("Name taken.", 409)), status: :conflict
+            end
+        else
+            render json: ErrorSerializer.new(ErrorMessage.new("No name given.", 406)), status: :not_acceptable
+        end
+    end
+
+    private
+
+    def user_params
+        params.permit(  :id, 
+                        :name, 
+                        :email)
+    end
 end
