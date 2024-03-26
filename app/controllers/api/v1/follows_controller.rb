@@ -10,6 +10,13 @@ class Api::V1::FollowsController < ApplicationController
             render json: follow.errors, status: :bad_request
         end
     end
+
+    def destroy
+        follow = find_follow_by_id(params[:id])
+
+        follow.destroy
+        head :no_content # sends a 204 no content response
+    end
 end
 
 private

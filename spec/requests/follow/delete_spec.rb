@@ -17,35 +17,29 @@ RSpec.describe "Api::V1::follow", type: :request do
                 youtube_handle: "donkus",
                 twitch_handle: "blonkus"
                 )
+
+            @follow1 = @user1.follows.create!(
+                creator_id: @creator2.id
+            )
         end
 
         describe "happy path" do
-            it "creates a follow" do
-                follow_params = {
-                    user_id: @user1.id,
-                    creator_id: @creator2.id
-                }
-                headers = { 
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                }
+            it "deletes a follow" do
 
-                post "/api/v1/users/#{@user1.id}/follows", headers: headers, params: JSON.generate(follow_params)
+                delete api_v1_user_follow_path(@user1.id, @follow1.id)
 
-                new_follow = Follow.last
-                result = JSON.parse(response.body, symbolize_names: true)
-
-                expect(response).to be_successful
-                expect(response.status).to eq(201)
-
-                expect(new_follow.user_id).to eq(follow_params[:user_id])
-                expect(new_follow.creator_id).to eq(follow_params[:creator_id])
-
-                # JSON formatting according to front end spec
-                expect(result).to be_a(Hash)
-
-                expect(result[:success]).to eq("Follow added successfully")
+                expect(response.status).to eq(204)
+                expect(Follow.count).to eq(0)
+                expect{Follow.find(@follow1.id)}.to raise_error(ActiveRecord::RecordNotFound)
             end
+
+            describe "sad path" do
+                it 'returns a 401 if the follow does not exist' do
+                  delete api_v1_user_follow_path(@user1.id, 444) 
+            
+                  expect(response.status).to eq(401)
+                end
+              end
         end
     end
 end

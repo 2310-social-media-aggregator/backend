@@ -63,8 +63,6 @@ RSpec.describe "Api::V1::follow", type: :request do
 
                 result = JSON.parse(response.body, symbolize_names: true)
 
-                require 'pry'; binding.pry
-
                 expect(response).to_not be_successful
                 expect(response.status).to eq(401)
 
@@ -87,8 +85,6 @@ RSpec.describe "Api::V1::follow", type: :request do
                 post "/api/v1/users/#{@user1.id}/follows", headers: headers, params: JSON.generate(follow_params)
 
                 result = JSON.parse(response.body, symbolize_names: true)
-
-                require 'pry'; binding.pry
 
                 expect(response).to_not be_successful
                 expect(response.status).to eq(401)
