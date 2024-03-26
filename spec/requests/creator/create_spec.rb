@@ -41,4 +41,31 @@ RSpec.describe "Api::V1::creators", type: :request do
 
         expect(json_response['error_object']['message']).to eq('Name taken.')
     end
+
+    it "POST Creator Create [SAD]-no name given" do
+        original_creator_count = Creator.all.count
+        new_creator_data = ({})
+
+        post "/api/v1/creators", headers: {"CONTENT_TYPE" => "application/json"}, params: JSON.generate(new_creator_data)
+        expect(response).to have_http_status(406)
+        json_response = JSON.parse(response.body)
+        
+        expect(Creator.all.count).to eq(original_creator_count)
+
+        expect(json_response['error_object']['message']).to eq('No name given.')
+    end
+
+    it "POST Creator Create [SAD]-blank name given" do
+        original_creator_count = Creator.all.count
+        new_creator_data = ({
+            'name': ''
+        })
+        post "/api/v1/creators", headers: {"CONTENT_TYPE" => "application/json"}, params: JSON.generate(new_creator_data)
+        expect(response).to have_http_status(406)
+        json_response = JSON.parse(response.body)
+        
+        expect(Creator.all.count).to eq(original_creator_count)
+
+        expect(json_response['error_object']['message']).to eq('No name given.')
+    end
 end
