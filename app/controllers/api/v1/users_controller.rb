@@ -26,6 +26,19 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def destroy
+        user = User.find_by(id: params[:id])
+        if user != nil
+            if user.destroy
+                render json: UserSerializer.new(user), status: :no_content
+            else
+                render json: ErrorSerializer.new(ErrorMessage.new("Delete failed.", 500)), status: :internal_server_error
+            end
+        else
+            render json: ErrorSerializer.new(ErrorMessage.new("User not found.", 404)), status: :not_found
+        end
+    end
+
     private
 
     def user_params
