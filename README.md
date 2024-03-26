@@ -9,8 +9,6 @@
 
 # JSON Contract
 
-# Endpoints
-
 ## User Endpoints
 
 ### User Show -
@@ -43,7 +41,42 @@ will return:
 }
 ```
 
+### Create a User
+
+POST `/users`
+
+with json body:
+
+```
+{
+  "name": "Thomas the Tank Engine"
+}
+```
+
+will create a user and return:
+
+
+```
+{
+  "data": {
+    "user": {
+      "id": 44,
+      "name": "Thomas the Tank Engine",
+      "follows": []
+    }
+  }
+}
+```
+
+### Delete a User
+
+
+DELETE `/users/1`
+
+will delete a User resource and return and empty `204` response
+
 ## Creator Endpoints
+
 
 ### Creator Show
 
@@ -127,39 +160,6 @@ will return:
 }
 ```
 
-### Create a User
-
-POST `/users`
-
-with json body:
-
-```
-{
-  "name": "Thomas the Tank Engine"
-}
-```
-
-will create a user and return:
-
-
-```
-{
-  "data": {
-    "user": {
-      "id": 44,
-      "name": "Thomas the Tank Engine",
-      "follows": []
-    }
-  }
-}
-```
-
-### Delete a User
-
-
-DELETE `/users/1`
-
-will delete a User resource and return and empty `204` response
 
 ## Follows Endpoints
 
