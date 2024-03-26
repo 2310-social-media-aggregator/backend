@@ -7,9 +7,11 @@
 
 
 
-## JSON Contract
+# JSON Contract
 
-## Endpoints
+# Endpoints
+
+## User Endpoints
 
 ### User Show -
 
@@ -41,6 +43,7 @@ will return:
 }
 ```
 
+## Creator Endpoints
 
 ### Creator Show
 
@@ -124,6 +127,42 @@ will return:
 }
 ```
 
+### Create a User
+
+POST `/users`
+
+with json body:
+
+```
+{
+  "name": "Thomas the Tank Engine"
+}
+```
+
+will create a user and return:
+
+
+```
+{
+  "data": {
+    "user": {
+      "id": 44,
+      "name": "Thomas the Tank Engine",
+      "follows": []
+    }
+  }
+}
+```
+
+### Delete a User
+
+
+DELETE `/users/1`
+
+will delete a User resource and return and empty `204` response
+
+## Follows Endpoints
+
 ### Create a Follows
 
 POST `/api/v1/users/1/follows`
@@ -171,45 +210,17 @@ will delete a `follows` resource and return:
 
 
 
+
+
 # Non-MVP endpoints (not ready yet)
 
-
-- create a user
-- edit a user
-- delete user
+- edit a user - X
 - 
-- creator index
-- creator create
-- creator update
-- creator delete
+- creator index - 
+- creator create - 
+- creator update - 
+- creator delete - 
 
-### Create a User
-
-
-POST `/users`
-
-with json body:
-
-```
-{
-  "name": "Thomas the Tank Engine"
-}
-```
-
-will create a user and return:
-
-
-```
-{
-  "data": {
-    "user": {
-      "id": 44,
-      "name": "Thomas the Tank Engine",
-      "follows": []
-    }
-  }
-}
-```
 
 ### Edit a User
 
@@ -234,16 +245,4 @@ will update the information and return:
     }
   }
 }
-```
-
-### Delete a User
-
-
-DELETE `/users/1`
-
-will delete a User resource and return:
-
-
-```
-
 ```
