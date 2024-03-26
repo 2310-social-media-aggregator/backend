@@ -22,7 +22,7 @@ will return:
     "id": 44,
     "type": "user",
     "attributes": {
-      "name": "Creator Name"
+      "name": "User Name"
       "follows": [
         {
           "id": 12,
