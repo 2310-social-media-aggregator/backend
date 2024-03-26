@@ -6,34 +6,31 @@
 - /api/v1/creators/***CREATOR_ID***
 
 
-
 # JSON Contract
 
 ## User Endpoints
 
-### User Show -
+### User Show
 
 GET `/api/v1/users/user_id`
 
-
 will return: 
-
+(the ID in the `follows` is the `creator_id`)
 ```
 {
   "data": {
-    "user": {
-      "id": 44,
-      "name": "User Name",
+    "id": 44,
+    "type": "user",
+    "attributes": {
+      "name": "User Name"
       "follows": [
         {
-          "creator_id": 12,
-          "user_id": 44,
-          "creator_name": "Creator Name"
+          "id": 12,
+          "name": "Creator Name"
         },
         {
-          "creator_id": 13,
-          "user_id": 44,
-          "creator_name": "Creator Name"
+          "id": 13,
+          "name": "Creator Name"
         }
       ]
     }
@@ -59,11 +56,12 @@ will create a user and return:
 ```
 {
   "data": {
-    "user": {
-      "id": 44,
+    "id": "2",
+    "type": "user",
+    "attributes": {
       "name": "Thomas the Tank Engine",
       "follows": []
-    }
+    }    
   }
 }
 ```
@@ -87,7 +85,7 @@ will return:
 ```
 {
     "data": {
-        "id": 12,
+        "id": 12 (null at moment, working on it),
         "type": "creator_aggregation",
         "attributes": {
             "name": "ZFG",
@@ -160,6 +158,33 @@ will return:
 }
 ```
 
+### Creator Index
+
+
+GET `/creators`
+
+will return:
+
+```
+{
+    "data": {
+        "id": null,
+        "type": "creator_index",
+        "attributes": {
+            "creators": [
+                {
+                    "name": "ZFG",
+                    "id": 1
+                },
+                {
+                    "name": "Aztecross",
+                    "id": 2
+                }
+            ]
+        }
+    }
+}
+```
 
 ## Follows Endpoints
 
@@ -167,6 +192,20 @@ will return:
 
 POST `/api/v1/users/1/follows`
 
+
+with a json body of:
+```
+{
+  "creator_id": "1"
+}
+```
+will create a follows for that user with the creator_id and return:
+```
+{
+    "success": "Follow added successfully"
+}
+```
+##  we want it to eventually return:
 will create a `follows` for the user and will return:
 
 ```
@@ -214,12 +253,10 @@ will delete a `follows` resource and return:
 
 # Non-MVP endpoints (not ready yet)
 
-- edit a user - X
-- 
-- creator index - 
-- creator create - 
-- creator update - 
-- creator delete - 
+- edit a user - x
+- creator create - x
+- creator update - x
+- creator delete - x
 
 
 ### Edit a User
@@ -246,3 +283,69 @@ will update the information and return:
   }
 }
 ```
+
+### Creators Create
+
+POST `/creators`
+
+with json body of:
+
+```
+{ 
+  "name": "ZFG"
+  "youtube_handle": "UC1qsXgdSxJnQG1wy2Gnvuqw"
+  "twitch_handle": "8683614"
+}
+```
+
+create a `Creator` and return:
+
+```
+{
+    "data": {
+        "id": 12,
+        "type": "creator_aggregation",
+        "attributes": {
+            "name": "ZFG",
+            "youtube_videos": [],
+            "twitch_videos": []
+        }
+    }
+}
+```
+
+### Creators Update
+
+PATCH `/creators`
+
+with json body of:
+
+```
+{ 
+  "name": "ZFG"
+  "youtube_handle": "UC1qsXgdSxJnQG1wy2Gnvuqw"
+  "twitch_handle": "updated_handle"
+}
+```
+
+create a `Creator` and return:
+
+```
+{
+    "data": {
+        "id": 12,
+        "type": "creator_aggregation",
+        "attributes": {
+            "name": "ZFG",
+            "youtube_videos": []
+            "twitch_videos": []
+        }
+    }
+}
+```
+
+### Delete a Creator
+
+DELETE `/creators/1`
+
+will delete the `Creator` resource and return a `204` response code

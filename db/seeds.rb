@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+@aztecross = Creator.create!(
+  name: "Aztecross",
+  twitch_handle: "50881182",
+  youtube_handle: "UClbllR4TxlhYJyrpu1sA4A")
+
 # users
 @user1 = User.create!(
     name: "Thomas the Tank Engine",
@@ -75,9 +80,15 @@
     youtube_handle: "UCZeO7KWB8iYmhnKB53oY3pw"
     )
 
+@creator11 = Creator.create!(
+  name: "Aztecross",
+  twitch_handle: "50881182",
+  youtube_handle: "UClbllR4TxlhYJyrpu1sA4A")
+
 # follows
 @follow1 = @user1.follows.create!(creator_id: @creator1.id)
 @follow2 = @user1.follows.create!(creator_id: @creator2.id)
 @follow3 = @user1.follows.create!(creator_id: @creator3.id)
 @follow4 = @user1.follows.create!(creator_id: @creator4.id)
 @follow5 = @user1.follows.create!(creator_id: @creator5.id)
+
