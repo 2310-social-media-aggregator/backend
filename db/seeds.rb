@@ -11,3 +11,5 @@
                         twitch_handle: "8683614",
                         youtube_handle: "UC1qsXgdSxJnQG1wy2Gnvuqw")
 
+user_1 = User.create!( name: "Thomas the Tank Engine",
+                        email: "thomas@gmail.com")
