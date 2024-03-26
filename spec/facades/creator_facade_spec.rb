@@ -27,18 +27,17 @@ RSpec.describe 'CreatorFacade' do
 
         facade = CreatorFacade.aggregate(package)
 
-        expect(facade[:id]).to eq(@MrBeast.id)
-        expect(facade[:name]).to eq(@MrBeast.name)
+        expect(facade.id).to eq(@MrBeast.id)
+        expect(facade.name).to eq(@MrBeast.name)
 
-        expect(facade[:youtube_videos].count).to be > 1
-        expect(facade[:youtube_videos][0][:publishedAt]).to eq("2024-03-19T16:00:00Z")
-        expect(facade[:youtube_videos][0][:title]).to eq("Keep Track Of Car, Win $10,000")
-        expect(facade[:youtube_videos][0][:image]).to eq("https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg")
-        expect(facade[:youtube_videos][0][:id]).to eq("OnTTThIzuNU")
+        expect(facade.youtube_videos.count).to be > 1
+        expect(facade.youtube_videos[0][:publishedAt]).to eq("2024-03-19T16:00:00Z")
+        expect(facade.youtube_videos[0][:title]).to eq("Keep Track Of Car, Win $10,000")
+        expect(facade.youtube_videos[0][:image]).to eq("https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg")
+        expect(facade.youtube_videos[0][:id]).to eq("OnTTThIzuNU")
 
         # Twitch facade test set to nil since Twitch consumption is complete; revisit test with creator on both YouTube and Twitch as more robust example, since we'll have Twitch video data as well
-        expect(facade[:twitch]).to eq(nil)
-        expect(facade[:twitter]).to eq({})
+        expect(facade.twitch_videos).to eq([])
     end
 
     it 'index' do

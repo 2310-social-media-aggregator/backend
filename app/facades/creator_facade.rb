@@ -32,12 +32,12 @@ class CreatorFacade
             end
         end
 
-        {
+        CreatorAggregationPoro.new({
             id: package[:creator][:id],
             name: package[:creator][:name],
             youtube_videos: youtube_videos,
             twitch_videos: twitch_videos,
             twitter: {}
-        }
+        })
     end
 end
