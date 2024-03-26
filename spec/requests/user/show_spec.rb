@@ -13,7 +13,7 @@ RSpec.describe "Api::V1::Users", type: :request do
         @follow2 = @user.follows.create(creator_id: @PewDiePie.id)
     end
 
-    it 'can get every follow from show request' do
+    it 'Show' do
         get "/api/v1/users/#{@user.id}", headers: {"CONTENT_TYPE" => "application/json"}
         expect(response).to have_http_status(:success)
         json_response = JSON.parse(response.body)
@@ -28,5 +28,12 @@ RSpec.describe "Api::V1::Users", type: :request do
         expect(json_response['data']['attributes']['follows'].last['id']).to eq(@PewDiePie.id)
         expect(json_response['data']['attributes']['follows'].last['name']).to eq(@PewDiePie.name)
         expect(json_response['data']['attributes']['follows'].last['id']).to_not eq(@Markiplier.id)
+    end
+
+    it 'Show [SAD]-bogus id' do
+        get "/api/v1/users/#{999999999}", headers: {"CONTENT_TYPE" => "application/json"}
+        expect(response).to have_http_status(404)
+        json_response = JSON.parse(response.body)
+        expect(json_response['error_object']['message']).to eq('User not found.')
     end
 end
