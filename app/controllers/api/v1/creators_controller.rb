@@ -31,15 +31,19 @@ class Api::V1::CreatorsController < ApplicationController
     end
 
     def create
-        if Creator.find_by(name: params[:name]) == nil
-            creator = Creator.create(creator_params)
-            if creator.save
-                render json: CreatorSerializer.new(creator), status: :created
+        if params[:name] != nil && params[:name] != ''
+            if Creator.find_by(name: params[:name]) == nil
+                creator = Creator.create(creator_params)
+                if creator.save
+                    render json: CreatorSerializer.new(creator), status: :created
+                else
+                    render json: ErrorSerializer.new(ErrorMessage.new("Save failed.", 500)), status: :internal_server_error
+                end
             else
-                render json: ErrorSerializer.new(ErrorMessage.new("Save failed.", 500)), status: :internal_server_error
+                render json: ErrorSerializer.new(ErrorMessage.new("Name taken.", 409)), status: :conflict
             end
         else
-            render json: ErrorSerializer.new(ErrorMessage.new("Name taken.", 409)), status: :conflict
+            render json: ErrorSerializer.new(ErrorMessage.new("No name given.", 406)), status: :not_acceptable
         end
     end
 
