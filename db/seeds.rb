@@ -8,11 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-@aztecross = Creator.create!(
-  name: "Aztecross",
-  twitch_handle: "50881182",
-  youtube_handle: "UClbllR4TxlhYJyrpu1sA4A")
-
 # users
 @user1 = User.create!(
     name: "Thomas the Tank Engine",
