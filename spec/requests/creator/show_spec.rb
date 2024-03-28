@@ -42,7 +42,7 @@ RSpec.describe "Api::V1::creators", type: :request do
             @zfg = Creator.create(  name: "ZFG",
                                     twitch_handle: "8683614")
                                    
-             stub_request(:get, "https://api.twitch.tv/helix/videos?first=5&user_id=8683614?").
+             stub_request(:get, "https://api.twitch.tv/helix/videos?first=5&user_id=8683614").
              with(
                  headers: {
                  'Accept'=>'*/*',

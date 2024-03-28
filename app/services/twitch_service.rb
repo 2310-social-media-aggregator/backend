@@ -15,6 +15,6 @@ class TwitchService
     def get_channel(handle, query)
         max_results = 5
         query = '' # delete this line if we are going to add search functionality
-        get_url("https://api.twitch.tv/helix/videos?user_id=8683614?&first=#{max_results}")
+        get_url("https://api.twitch.tv/helix/videos?user_id=#{handle}&first=#{max_results}")
     end
 end
