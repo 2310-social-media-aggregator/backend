@@ -186,6 +186,72 @@ will return:
 }
 ```
 
+### Creators Create
+
+POST `/creators`
+
+with json body of:
+
+```
+{ 
+  "name": "ZFG"
+  "youtube_handle": "UC1qsXgdSxJnQG1wy2Gnvuqw"
+  "twitch_handle": "8683614"
+}
+```
+
+create a `Creator` and return:
+
+```
+{
+    "data": {
+        "id": 12,
+        "type": "creator_aggregation",
+        "attributes": {
+            "name": "ZFG",
+            "youtube_videos": [],
+            "twitch_videos": []
+        }
+    }
+}
+```
+
+### Creators Update
+
+PATCH `/creators`
+
+with json body of:
+
+```
+{ 
+  "name": "ZFG"
+  "youtube_handle": "UC1qsXgdSxJnQG1wy2Gnvuqw"
+  "twitch_handle": "updated_handle"
+}
+```
+
+create a `Creator` and return:
+
+```
+{
+    "data": {
+        "id": 12,
+        "type": "creator_aggregation",
+        "attributes": {
+            "name": "ZFG",
+            "youtube_videos": []
+            "twitch_videos": []
+        }
+    }
+}
+```
+
+### Delete a Creator
+
+DELETE `/creators/1`
+
+will delete the `Creator` resource and return a `204` response code
+
 ## Follows Endpoints
 
 ### Create a Follows
@@ -283,69 +349,3 @@ will update the information and return:
   }
 }
 ```
-
-### Creators Create
-
-POST `/creators`
-
-with json body of:
-
-```
-{ 
-  "name": "ZFG"
-  "youtube_handle": "UC1qsXgdSxJnQG1wy2Gnvuqw"
-  "twitch_handle": "8683614"
-}
-```
-
-create a `Creator` and return:
-
-```
-{
-    "data": {
-        "id": 12,
-        "type": "creator_aggregation",
-        "attributes": {
-            "name": "ZFG",
-            "youtube_videos": [],
-            "twitch_videos": []
-        }
-    }
-}
-```
-
-### Creators Update
-
-PATCH `/creators`
-
-with json body of:
-
-```
-{ 
-  "name": "ZFG"
-  "youtube_handle": "UC1qsXgdSxJnQG1wy2Gnvuqw"
-  "twitch_handle": "updated_handle"
-}
-```
-
-create a `Creator` and return:
-
-```
-{
-    "data": {
-        "id": 12,
-        "type": "creator_aggregation",
-        "attributes": {
-            "name": "ZFG",
-            "youtube_videos": []
-            "twitch_videos": []
-        }
-    }
-}
-```
-
-### Delete a Creator
-
-DELETE `/creators/1`
-
-will delete the `Creator` resource and return a `204` response code
