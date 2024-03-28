@@ -1,8 +1,8 @@
 class CreatorAggregationPoro
     attr_reader :id,
-                :publishedAt,
-                :title,
-                :image
+                :name,
+                :youtube_videos,
+                :twitch_videos
 
     def initialize(data)
         @id = data[:id]
@@ -10,4 +10,5 @@ class CreatorAggregationPoro
         @youtube_videos = data[:youtube_videos]
         @twitch_videos = data[:twitch_videos]
     end
+
 end

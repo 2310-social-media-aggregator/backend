@@ -21,12 +21,12 @@ RSpec.describe "Api::V1::creators", type: :request do
             expect(response).to have_http_status(:success)
             json_response = JSON.parse(response.body)
     
-            #expect(json_response['data']['id']).to eq(@MrBeast.id.to_s)
+            expect(json_response['data']['id']).to eq(@MrBeast.id.to_s)
             expect(json_response['data']['type']).to eq('creator_aggregation')
             expect(json_response['data']['attributes']['name']).to eq('MrBeast')
     
             expect(json_response['data']['attributes']['youtube_videos'].count).to eq(5)
-            
+        
             expect(json_response['data']['attributes']['youtube_videos'].first['title']).to eq('Keep Track Of Car, Win $10,000')
             expect(json_response['data']['attributes']['youtube_videos'].first['image']).to eq('https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg')
             expect(json_response['data']['attributes']['youtube_videos'].first['id']).to eq('OnTTThIzuNU')
