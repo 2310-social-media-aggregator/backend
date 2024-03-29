@@ -9,7 +9,7 @@ class Api::V1::CreatorsController < ApplicationController
       
       youtube = nil
       if creator.youtube_handle != nil
-        youtube = YoutubeFacade.get_channel(creator.youtube_handle, params[:query])
+        youtube = YoutubeFacade.cache_get_channel(creator.youtube_handle)
       end
       
         twitch = nil
