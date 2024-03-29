@@ -6,8 +6,10 @@ class YoutubeFacade
         youtube_service = YoutubeService.new
         youtube_json = youtube_service.get_channel(handle, query)
         youtube = []
-        youtube_json[:items].each do |video|
-            youtube.append(YoutubeVideoPoro.new(video))
+        if youtube_json[:items] != nil
+            youtube_json[:items].each do |video|
+                youtube.append(YoutubeVideoPoro.new(video))
+            end
         end
 
         {'videos': youtube}
