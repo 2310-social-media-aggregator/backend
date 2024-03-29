@@ -5,7 +5,7 @@ class Api::V1::CreatorsController < ApplicationController
     end
 
     def show
-      creator = Creator.find(params[:id])
+        creator = Creator.find(params[:id])
       
       youtube = nil
       if creator.youtube_handle != nil
