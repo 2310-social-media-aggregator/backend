@@ -20,7 +20,7 @@ RSpec.describe 'CreatorFacade' do
     it 'aggregate' do
         package = {
             creator: @MrBeast,
-            youtube: YoutubeFacade.get_channel(@MrBeast.youtube_handle, nil),
+            youtube: YoutubeFacade.get_channel(@MrBeast.youtube_handle),
             twitch: nil,
             twitter: nil
         }
