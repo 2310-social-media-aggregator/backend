@@ -12,7 +12,7 @@ class TwitchService
         JSON.parse(response.body, symbolize_names: true)
     end
     
-    def get_channel(handle, query)
+    def get_channel(handle)
         max_results = 5
         query = '' # delete this line if we are going to add search functionality
         get_url("https://api.twitch.tv/helix/videos?user_id=#{handle}&first=#{max_results}")

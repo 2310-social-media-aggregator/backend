@@ -6,15 +6,15 @@ class Api::V1::CreatorsController < ApplicationController
 
     def show
         creator = Creator.find(params[:id])
-      
+
         youtube = nil
         if creator.youtube_handle != nil
-            youtube = YoutubeFacade.get_channel(creator.youtube_handle, params[:query])
+            youtube = YoutubeFacade.cache_get_channel(creator.youtube_handle)
         end
-      
+
         twitch = nil
         if creator.twitch_handle != nil
-            twitch = TwitchFacade.get_channel(creator.twitch_handle, params[:query])
+            twitch = TwitchFacade.cache_get_channel(creator.twitch_handle)
         end
 
         twitter = nil
