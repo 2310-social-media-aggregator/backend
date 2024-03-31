@@ -18,9 +18,9 @@ class Api::V1::CreatorsController < ApplicationController
         end
 
         twitter = nil
-        #if creator.twitter_handle != nil
-        #    twitter = TwitterFacade.get_channel(creator.twitter_handle, params[:query])
-        #end
+        if creator.twitter_handle != nil
+            twitter = TwitterFacade.get_tweets(creator.twitter_handle)
+        end
 
         package =  {'creator': creator,
                     'youtube': youtube,
