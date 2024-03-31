@@ -14,7 +14,7 @@ RSpec.describe 'YoutubeFacade' do
         channelId = 'UCX6OQ3DkcsbYNE6H8uQQuVA' # Mr Beast
         query = ''
 
-        facade = YoutubeFacade.get_channel(channelId, query)
+        facade = YoutubeFacade.get_channel(channelId)
 
         expect(facade[:videos].count).to be > 1
         expect(facade[:videos][0]).to be_a(YoutubeVideoPoro)
