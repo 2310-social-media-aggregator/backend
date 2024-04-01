@@ -84,4 +84,44 @@ RSpec.describe "Api::V1::creators", type: :request do
             expect(result[:data][:attributes][:twitch_videos][4][:image]).to eq("https://static-cdn.jtvnw.net/cf_vods/d1m7jfoe9zdc1j/31ff66e0be8089e26863_zfg1_50648550989_1710618791//thumb/thumb0-%{width}x%{height}.jpg")
         end
     end
+
+    describe "YouTube content" do
+        before(:each) do
+            @MrBeast = Creator.create(  name: "MrBeast",
+                                        youtube_handle: "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                                        twitter_handle: "MrBeast")
+    
+            stub_request(:get, "https://www.googleapis.com/youtube/v3/search?channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&key=#{Rails.application.credentials.youtube[:key]}&maxResults=5&order=date&part=snippet&q=").
+                with(
+                headers: {
+                    'Accept'=>'*/*',
+                    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+                    'User-Agent'=>'Faraday v2.9.0'
+            }).
+            to_return(status: 200, body: File.read("spec/fixtures/MrBeastYoutube.json"), headers: {})
+        end
+    
+        xit "GET Twitter Creator Aggregation" do # this test will be x'ed out because it is a live test + I don't want to be banned on Twitter
+            get "/api/v1/creators/#{@MrBeast.id}", headers: {"CONTENT_TYPE" => "application/json"}
+            expect(response).to have_http_status(:success)
+            json_response = JSON.parse(response.body)
+    
+            expect(json_response['data']['id']).to eq(@MrBeast.id.to_s)
+            expect(json_response['data']['type']).to eq('creator_aggregation')
+            expect(json_response['data']['attributes']['name']).to eq('MrBeast')
+    
+            expect(json_response['data']['attributes']['youtube_videos'].count).to eq(5)
+            expect(json_response['data']['attributes']['youtube_videos'].first['id']).to eq('OnTTThIzuNU')    
+            expect(json_response['data']['attributes']['youtube_videos'].last['id']).to eq('AFXoSFNMwIA')
+
+            expect(json_response['data']['attributes']['twitter']['handle']).to eq(@MrBeast.twitter_handle)
+            expect(json_response['data']['attributes']['twitter']['tweets'].count).to be > 0
+            expect(json_response['data']['attributes']['twitter']['tweets'].first['id'].length).to be > 0
+            expect(json_response['data']['attributes']['twitter']['tweets'].first['created_at'].length).to be > 0
+            expect(json_response['data']['attributes']['twitter']['tweets'].last['id'].length).to be > 0
+            expect(json_response['data']['attributes']['twitter']['tweets'].last['created_at'].length).to be > 0
+
+            binding.pry
+        end
+    end
 end

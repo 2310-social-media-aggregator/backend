@@ -32,12 +32,17 @@ class CreatorFacade
             end
         end
 
+        twitter = []
+        if package[:twitter] != nil
+            twitter = package[:twitter]
+        end
+
         CreatorAggregationPoro.new({
             id: package[:creator][:id],
             name: package[:creator][:name],
             youtube_videos: youtube_videos,
             twitch_videos: twitch_videos,
-            twitter: {}
+            twitter: twitter
         })
     end
 end

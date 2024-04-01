@@ -162,6 +162,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.3-x86_64-linux)
       racc (~> 1.4)
+    open3 (0.2.1)
     opentelemetry-api (1.2.5)
     opentelemetry-common (0.20.1)
       opentelemetry-api (~> 1.0)
@@ -483,6 +484,7 @@ DEPENDENCIES
   faraday
   jsonapi-serializer
   launchy
+  open3
   opentelemetry-exporter-otlp
   opentelemetry-instrumentation-all
   opentelemetry-sdk
