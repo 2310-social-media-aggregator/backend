@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :creators, only: [:show, :index, :create, :update, :destroy]
-      resources :users, only: [:show, :create, :destroy] do
+      resources :users, only: [:show, :create, :destroy, :update] do
         resources :follows, only: [:create, :destroy]
       end
     end
