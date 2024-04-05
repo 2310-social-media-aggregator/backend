@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe YoutubeVideoPoro do
-    it 'creates an country poro based on attributes' do
+    it 'creates an Youtube Video Poro based on attributes' do
         attr = {
             "kind": "youtube#searchResult",
             "etag": "Ptt38qLNXSKnbr_UJwionXkXDOI",

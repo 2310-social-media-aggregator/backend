@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe YoutubeVideoPoro do
-    it 'creates an country poro based on attributes' do
+RSpec.describe TwitchVideoPoro do
+    it 'creates an Twitch Video Poro based on attributes' do
         attr = {
             "id": "2100415767",
             "stream_id": "42444153433",
