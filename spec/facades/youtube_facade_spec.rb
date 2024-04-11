@@ -18,7 +18,7 @@ RSpec.describe 'YoutubeFacade' do
 
         expect(facade[:videos].count).to be > 1
         expect(facade[:videos][0]).to be_a(YoutubeVideoPoro)
-        expect(facade[:videos][0].publishedAt).to eq("2024-03-19T16:00:00Z")
+        expect(facade[:videos][0].published_at).to eq("2024-03-19T16:00:00Z")
         expect(facade[:videos][0].title).to eq("Keep Track Of Car, Win $10,000")
         expect(facade[:videos][0].image).to eq("https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg")
         expect(facade[:videos][0].id).to eq("OnTTThIzuNU")

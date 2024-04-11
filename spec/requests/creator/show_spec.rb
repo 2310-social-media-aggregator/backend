@@ -30,7 +30,7 @@ RSpec.describe "Api::V1::creators", type: :request do
             expect(json_response['data']['attributes']['youtube_videos'].first['title']).to eq('Keep Track Of Car, Win $10,000')
             expect(json_response['data']['attributes']['youtube_videos'].first['image']).to eq('https://i.ytimg.com/vi/OnTTThIzuNU/hqdefault.jpg')
             expect(json_response['data']['attributes']['youtube_videos'].first['id']).to eq('OnTTThIzuNU')
-            expect(json_response['data']['attributes']['youtube_videos'].first['publishedAt']).to eq('2024-03-19T16:00:00Z')
+            expect(json_response['data']['attributes']['youtube_videos'].first['published_at']).to eq('2024-03-19T16:00:00Z')
     
             expect(json_response['data']['attributes']['youtube_videos'].last['id']).to eq('AFXoSFNMwIA')
             expect(json_response['data']['attributes']['youtube_videos'].last['title']).to eq("I Filled Chandler’s Car With Feastables")
@@ -121,7 +121,6 @@ RSpec.describe "Api::V1::creators", type: :request do
             expect(json_response['data']['attributes']['twitter']['tweets'].last['id'].length).to be > 0
             expect(json_response['data']['attributes']['twitter']['tweets'].last['created_at'].length).to be > 0
 
-            binding.pry
         end
     end
 end

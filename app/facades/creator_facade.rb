@@ -14,7 +14,7 @@ class CreatorFacade
                 youtube_videos.append({
                     'id': video.id,
                     'image': video.image,
-                    'publishedAt': video.publishedAt,
+                    'published_at': video.published_at,
                     'title': video.title
                 })
             end

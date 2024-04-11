@@ -18,7 +18,7 @@ RSpec.describe YoutubeService do
 
         expect(json[:items].count).to be > 0
         expect(json[:items].first[:snippet][:title].class).to eq(String)
-        expect(json[:items].first[:snippet][:publishedAt].class).to eq(String)
+        expect(json[:items].first[:snippet][:published_at].class).to eq(String)
         expect(json[:items].first[:snippet][:title].class).to eq(String)
         expect(json[:items].first[:snippet][:thumbnails][:high][:url].class).to eq(String)
     end

@@ -10,7 +10,7 @@ RSpec.describe YoutubeVideoPoro do
                 "videoId": "mKdjycj-7eE"
             },
             "snippet": {
-                "publishedAt": "2024-03-16T16:00:00Z",
+                "published_at": "2024-03-16T16:00:00Z",
                 "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
                 "title": "Stop This Train, Win a Lamborghini",
                 "description": "I still can't believe what happened in this video lol Check out the mind-blowing Galaxy AI on the Samsung Galaxy S24 Ultra.",
@@ -39,7 +39,7 @@ RSpec.describe YoutubeVideoPoro do
 
         video = YoutubeVideoPoro.new(attr)
         expect(video).to be_a(YoutubeVideoPoro)
-        expect(video.publishedAt).to eq("2024-03-16T16:00:00Z")
+        expect(video.published_at).to eq("2024-03-16T16:00:00Z")
         expect(video.title).to eq("Stop This Train, Win a Lamborghini")
         expect(video.image).to eq("https://i.ytimg.com/vi/mKdjycj-7eE/hqdefault.jpg")
         expect(video.id).to eq("mKdjycj-7eE")
