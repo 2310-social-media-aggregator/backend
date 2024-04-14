@@ -6,8 +6,8 @@ class UserFacade
             creator = Creator.find_by(id: follow.creator_id)
             if creator != nil
                 follows.append({id: creator.id, name: creator.name})
-            else
-                follow.destroy
+            # else
+            #     follow.destroy ## We don't think this is necessary or possible, but keeping this here in case we need it
             end
         end
 
