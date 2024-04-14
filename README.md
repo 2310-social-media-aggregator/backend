@@ -1,9 +1,60 @@
-# Working routes
-### Creator Index
-- /api/v1/creators
+# Platform BE
+ Welcome to Platform BE! 
 
-### Creator Show
-- /api/v1/creators/***CREATOR_ID***
+### Purpose 
+ Platform consolidates content from your favorite creators into one easily accessible “platform”, simplifying how users discover and engage with their favorite content and creators without having to navigate multiple sites.
+
+### Description
+This back-end repository powers Platform's front-end application, integrating YouTube and Twitch APIs and scraping Twitter to aggregate content from your favorite creators seamlessly. The relevant video data and additional content is compiled and sent off to the FE using the endpoints specified below. 
+
+### Current Versions
+  Platform BE is currently on `V1` and is meant to be used in tandem with [Platform's FE](https://github.com/2310-social-media-aggregator/frontend)
+
+### Tech Stack
+  Platform BE is built on `Ruby 3.2.2` and `Rails 7.1.3.2`
+  Some notable gems and additions:
+  - [Farady (2.9.0)](https://lostisland.github.io/faraday/#/) for external API consumption with Rails
+  - [OpenTelemetry](https://www.honeycomb.io/) via `Honeycomb` for response time and error observability 
+  - [Simplecov](https://github.com/simplecov-ruby/simplecov) for testing coverage visibility
+  - [CORS](https://github.com/cyu/rack-cors) for easy connection with Platform's typescript FE
+  - [JSON API serializer](https://github.com/jsonapi-serializer/jsonapi-serializer) for convenient serialization of endpoint data into standard JSON formatting
+  - [Open3](https://github.com/ruby/open3) for use with Twitter web scraping
+  - Platform uses Rails built in [caching functionality](https://guides.rubyonrails.org/caching_with_rails.html) to cache content up to an hour for faster response times
+
+## Steps to Install Platform BE
+  1. Clone `Platform BE` down to your local server. 
+  ```
+    git clone git@github.com:2310-social-media-aggregator/backend.git
+  ```
+  2. Cd into the newly created directory `/backend`
+
+  3. To create and migrate Platform's BE database, run:
+  ```
+    rails db:{create,migrate}
+  ``` 
+  4. To ensure all gems are installed and up to date, from the command line run:
+  ```
+    bundle install
+  ```
+
+### Test Coverage
+   - to view test coverage using the `simplecov` gem, run the full test suite `bundle exec rspec` from the root directory. Then run `open coverage/index.html` in the command line
+
+### Challenges
+- *Consumption of Twitter's API*. Twitter's API service has recently become harder to utilize and is quite costly. To solve this problem, we decided to implement web scraping to retrieve tweets from content creators.
+- *Slow response times for large data sets*. We deployed an observability tool, Honeycomb, to expose our most significant performance bottlenecks. With that information, we implemented caching using Rails built in storage and caching tools, reducing response times by 95%.
+
+### Contributors
+- Dylan Perry: [GitHub](https://github.com/dylan-perry), [LinkedIn](https://www.linkedin.com/in/dylanperry/)
+- Quin Nordmark: [GitHub](https://github.com/n0rdie), [LinkedIn](https://www.linkedin.com/in/quinnordmark/)
+- Isaac Mitchell: [GitHub](https://github.com/tmitchellisaac), [LinkedIn](https://www.linkedin.com/in/isaac-mitchell-877272286/)
+- Dana Zack: [GitHub](https://github.com/dana-zack), [LinkedIn](https://www.linkedin.com/in/danazack/)
+- Edward Gavin Garcia: [GitHub](https://github.com/EGavinG), [LinkedIn](https://www.linkedin.com/in/egavingarcia/)
+- Matthew Shindel: [GitHub](https://github.com/MatthewShindel), [LinkedIn](https://www.linkedin.com/in/mshindel/)
+
+
+
+
 
 
 # JSON Contract
