@@ -6,8 +6,6 @@ class Api::V1::FollowsController < ApplicationController
 
         if follow.save
             render json: { success: "Follow added successfully" }, status: :created
-        else
-            render json: follow.errors, status: :bad_request
         end
     end
 
@@ -17,10 +15,4 @@ class Api::V1::FollowsController < ApplicationController
         follow.destroy
         head :no_content # sends a 204 no content response
     end
-end
-
-private
-
-def follow_params
-    params.permit(:user_id, :creator_id)
 end

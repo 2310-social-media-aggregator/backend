@@ -144,31 +144,31 @@ will return:
                 {
                     "id": "v-S-oXltLGY",
                     "image": "https://i.ytimg.com/vi/v-S-oXltLGY/hqdefault.jpg",
-                    "publishedAt": "2024-02-27T03:20:10Z",
+                    "published_at": "2024-02-27T03:20:10Z",
                     "title": "Majora&#39;s Mask Randomizer - February 19th 2024"
                 },
                 {
                     "id": "tTlv1GO1jws",
                     "image": "https://i.ytimg.com/vi/tTlv1GO1jws/hqdefault.jpg",
-                    "publishedAt": "2024-02-27T03:19:40Z",
+                    "published_at": "2024-02-27T03:19:40Z",
                     "title": "Majora&#39;s Mask Randomizer - February 16th 2024"
                 },
                 {
                     "id": "yiFVunlhK1Y",
                     "image": "https://i.ytimg.com/vi/yiFVunlhK1Y/hqdefault.jpg",
-                    "publishedAt": "2024-02-27T03:20:19Z",
+                    "published_at": "2024-02-27T03:20:19Z",
                     "title": "Majora&#39;s Mask Randomizer - February 23rd 2024"
                 },
                 {
                     "id": "ULqw1UW9d_4",
                     "image": "https://i.ytimg.com/vi/ULqw1UW9d_4/hqdefault.jpg",
-                    "publishedAt": "2024-02-27T03:20:50Z",
+                    "published_at": "2024-02-27T03:20:50Z",
                     "title": "Majora&#39;s Mask 2v1 vs @NinanininVT  and @BatAtVideoGames -  February 24th 2024"
                 },
                 {
                     "id": "lMn5g_K--GA",
                     "image": "https://i.ytimg.com/vi/lMn5g_K--GA/hqdefault.jpg",
-                    "publishedAt": "2024-02-27T03:19:52Z",
+                    "published_at": "2024-02-27T03:19:52Z",
                     "title": "Majora&#39;s Mask Randomizer - February 17th 2024"
                 }
             ],
