@@ -1,45 +1,34 @@
-RSpec.describe "Api::V1::follow", type: :request do
-    describe "Follow Delete" do
-        before :each do
-            @user1 = User.create!(
-                name: "Albert Wesker",
-                email: "albertwesker@gmail.com"
-                )
+require 'rails_helper'
 
-            @creator1 = Creator.create!(
-                name: "MrBeast",
-                youtube_handle: "pogorulab",
-                twitch_handle: "pogorulab"
-                )
+RSpec.describe 'Follow Delete' do 
+    before(:each) do
+        @user = User.create(name: "TestUserZYX987")
+        @creator = Creator.create(name: "TestCreatorZYX987")
+        @follow = @user.follows.create(creator_id: @creator.id)
+    end
 
-            @creator2 = Creator.create!(
-                name: "ZFG",
-                youtube_handle: "donkus",
-                twitch_handle: "blonkus"
-                )
+    it 'DELETE Follow [HAPPY]' do
+        expect(Follow.find_by(id: @follow.id)).to_not eq(nil)
 
-            @follow1 = @user1.follows.create!(
-                creator_id: @creator2.id
-            )
-        end
+        delete "/api/v1/users/#{@user.id}/follows/#{@follow.id}", headers: {"CONTENT_TYPE" => "application/json"}
+        expect(response).to have_http_status(204)
 
-        describe "happy path" do
-            it "deletes a follow" do
+        expect(Follow.find_by(id: @follow.id)).to eq(nil)
+    end
 
-                delete api_v1_user_follow_path(@user1.id, @follow1.id)
+    it 'DELETE Follow - [SAD]-bad follow id' do
+        delete "/api/v1/users/#{@user.id}/follows/#{999999999999999}", headers: {"CONTENT_TYPE" => "application/json"}
+        expect(response).to have_http_status(404)
+        json_response = JSON.parse(response.body)
 
-                expect(response.status).to eq(204)
-                expect(Follow.count).to eq(0)
-                expect{Follow.find(@follow1.id)}.to raise_error(ActiveRecord::RecordNotFound)
-            end
+        expect(json_response['error_object']['message']).to eq('Follow not found.')
+    end
 
-            describe "sad path" do
-                it 'returns a 401 if the follow does not exist' do
-                  delete api_v1_user_follow_path(@user1.id, 444) 
-            
-                  expect(response.status).to eq(401)
-                end
-              end
-        end
+    it 'DELETE Follow - [SAD]-bad user id' do
+        delete "/api/v1/users/#{999999999999999}/follows/#{@follow.id}", headers: {"CONTENT_TYPE" => "application/json"}
+        expect(response).to have_http_status(404)
+        json_response = JSON.parse(response.body)
+
+        expect(json_response['error_object']['message']).to eq('user.id does not equal follow.user_id.')
     end
 end

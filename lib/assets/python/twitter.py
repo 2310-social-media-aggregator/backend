@@ -25,4 +25,4 @@ df = pd.DataFrame(tweets_to_store)
 df.to_csv('tweets.csv', index=False)
 df.sort_values(by='created_at', ascending=False)
 
-print(json.dumps(tweets_to_store, indent=4))
+json.dumps(tweets_to_store, indent=4)
