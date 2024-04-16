@@ -10,25 +10,25 @@ RSpec.describe 'Follow Delete' do
     it 'DELETE Follow [HAPPY]' do
         expect(Follow.find_by(id: @follow.id)).to_not eq(nil)
 
-        delete "/api/v1/users/#{@user.id}/follows/#{@follow.id}", headers: {"CONTENT_TYPE" => "application/json"}
+        delete "/api/v1/users/#{@user.id}/follows/#{@creator.id}", headers: {"CONTENT_TYPE" => "application/json"}
         expect(response).to have_http_status(204)
 
         expect(Follow.find_by(id: @follow.id)).to eq(nil)
     end
 
-    it 'DELETE Follow - [SAD]-bad follow id' do
+    it 'DELETE Follow - [SAD]-bad creator id' do
         delete "/api/v1/users/#{@user.id}/follows/#{999999999999999}", headers: {"CONTENT_TYPE" => "application/json"}
         expect(response).to have_http_status(404)
         json_response = JSON.parse(response.body)
 
-        expect(json_response['error_object']['message']).to eq('Follow not found.')
+        expect(json_response['error_object']['message']).to eq('Creator not found.')
     end
 
     it 'DELETE Follow - [SAD]-bad user id' do
-        delete "/api/v1/users/#{999999999999999}/follows/#{@follow.id}", headers: {"CONTENT_TYPE" => "application/json"}
+        delete "/api/v1/users/#{999999999999999}/follows/#{@creator.id}", headers: {"CONTENT_TYPE" => "application/json"}
         expect(response).to have_http_status(404)
         json_response = JSON.parse(response.body)
 
-        expect(json_response['error_object']['message']).to eq('user.id does not equal follow.user_id.')
+        expect(json_response['error_object']['message']).to eq('User not found.')
     end
 end
